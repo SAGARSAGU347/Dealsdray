@@ -1,0 +1,24 @@
+.kishore{
+  display: flex;
+  align-items: center;
+}
+.brit{
+  display: flex;
+  align-items: center;
+}
+.saa{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  
+}
+.Course{
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 250px;
+}
+
+
+
