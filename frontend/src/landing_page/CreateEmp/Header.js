@@ -21,7 +21,7 @@ function Header(){
                 <a href='/createemployee'><li>Employee List</li></a>
                 <br/>
                 <li>Admin Name</li>
-                <li>Logout</li>
+               <a href='http://localhost:3001/login'> <li>Logout</li></a>
                 
 
 

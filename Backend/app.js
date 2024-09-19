@@ -5,6 +5,8 @@ const Employee=require('./models/employee');
 const cors=require('cors');
 const bodyParser = require('body-parser');
 
+const UserModel=require('./models/user');
+
 main()
 .then(()=>console.log("connected to db"))
 .catch((err)=>console.log(err));
@@ -67,7 +69,37 @@ app.get("/getemployees", async(req,res)=>{
         res.redirect('http://localhost:3001/dashboardemp');
         console.log(Employee);
       });
-      
+
+      //edit route//
+      app.get("/getemployees/:id/edit", async(req,res)=>{
+        let {id}=req.params;
+        const employee= await Employee.findById(id);
+        res.redirect('http://localhost:3001/createemployee');
+    })
+
+
+    app.post("/login",(req,res)=>{
+      const {email,password}=req.body;
+    UserModel.findOne({email:email})
+    .then(user=>{
+      if(user){
+        if(user.password===password){
+          res.json("success")
+        }else{
+          res.json("Password incorrect")
+        }
+      }else{
+        res.json("User not found")
+      }
+    })
+  })
+  
+    app.post('/signup',(req,res)=>{
+      UserModel.create(req.body)
+      .then(User=>res.json(User))
+      .catch(err=>res.json(err))
+    })
+   
 
 
 

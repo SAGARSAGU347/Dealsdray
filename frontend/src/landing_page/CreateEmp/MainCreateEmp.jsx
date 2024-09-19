@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from './Header';
+import { Link } from 'react-router-dom';
 
 function MainCreateEmp() {
     const [employees, setEmployees] = useState([]);
@@ -55,7 +56,7 @@ function MainCreateEmp() {
                             </td>
                             <td>
                                 
-                                <a href="/editemployee" className="mr-2">Edit</a> / <a href={`#delete-${employee._id}`}>Delete</a>
+                                <Link className="mr-2" to={`/update/${employee._id}`}>Edit</Link> / <a href={"/delete"}>Delete</a>
                             </td>
                         </tr>
                     ))}
